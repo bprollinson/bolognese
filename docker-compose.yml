@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  gateway:
+    container_name: gateway
+    build: ./gateway
+    ports:
+      - 80:80
