@@ -1,0 +1,19 @@
+[
+    {
+        "request": {
+            "method": "GET",
+            "uri": "/entity/{id}",
+            "params": [
+                {
+                    "name": "id",
+                    "type": "natural"
+                }
+            ]
+        },
+        "methodInvocation": {
+            "namespace": null,
+            "class": "EntityController",
+            "method": "getEntity"
+        }
+    }
+]

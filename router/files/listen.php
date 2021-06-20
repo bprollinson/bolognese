@@ -1,5 +1,8 @@
 <?php
 
+require_once('Request.class.php');
+require_once('Router.class.php');
+
 if (!($socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
 {
     socket_close($socket);
@@ -26,12 +29,23 @@ if (!($client = socket_accept($socket)))
 }
 
 $request = socket_read($client, 2048);
+$requestParameters = json_decode($request, true);
 
-$responseParameters = [
-    'controller' => 'SampleControler',
-    'method' => 'sampleMethod'
-];
-$response = json_encode($responseParameters);
+$requestModel = new Request(
+    $requestParameters['method'],
+    $requestParameters['uri'],
+    $requestParameters['get'],
+    $requestParameters['post']
+);
+$router = new Router('/root/routes.json');
+$methodInvocation = $router->route($requestModel);
+if ($methodInvocation === null)
+{
+    socket_close($socket);
+    die;
+}
+
+$response = json_encode($methodInvocation->toArray());
 socket_write($client, $response);
 
 socket_close($client);
