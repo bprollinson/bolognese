@@ -1,6 +1,6 @@
 FROM alpine:3.14.0
 
-RUN apk add apache2 && apk add php7 && apk add php7-apache2
+RUN apk add apache2 && apk add php7 && apk add php7-apache2 && apk add php7-sockets && apk add php7-json
 
 COPY files/index.php /var/www/localhost/htdocs
 RUN rm /var/www/localhost/htdocs/index.html
