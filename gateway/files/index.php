@@ -16,6 +16,8 @@ if (!($result = socket_connect($socket, $hostIP, 50000)))
 }
 
 $requestParameters = [
+    'method' => $_SERVER['REQUEST_METHOD'],
+    'uri' => $_SERVER['REQUEST_URI'],
     'get' => $_GET,
     'post' => $_POST
 ];
