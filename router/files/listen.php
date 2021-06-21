@@ -1,88 +1,10 @@
 <?php
 
+require_once('SocketProvider.class.php');
 require_once('Request.class.php');
 require_once('Router.class.php');
 require_once('RouteNotFoundResponse.class.php');
 require_once('MethodInvocationResponse.class.php');
-
-class SocketProvider
-{
-    private $hostIP;
-    private $port;
-    private $socket;
-
-    public function __construct($hostIP, $port)
-    {
-        $this->hostIP = $hostIP;
-        $this->port = $port;
-    }
-
-    public function initialize()
-    {
-        $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-        if ($this->socket === false)
-        {
-            return false;
-        }
-
-        $success = socket_bind($this->socket, $this->hostIP, $this->port);
-        if (!$success)
-        {
-            socket_close($this->socket);
-            return false;
-        }
-
-        $success = socket_listen($this->socket, 1);
-        if (!$success)
-        {
-            socket_close($this->socket);
-            return false;
-        }
-
-        return true;
-    }
-
-    public function shutDown()
-    {
-        socket_close($this->socket);
-    }
-
-    public function acceptConnection()
-    {
-        $client = socket_accept($this->socket);
-        if ($client === false)
-        {
-            return null;
-        }
-
-        return new SocketConnection($client);
-    }
-}
-
-class SocketConnection
-{
-    private $client;
-
-    public function __construct($client)
-    {
-        $this->client = $client;
-    }
-
-    public function read()
-    {
-        return socket_read($this->client, 2048);
-    }
-
-    public function write($string)
-    {
-        socket_write($this->client, $string); 
-    }
-
-    public function close()
-    {
-        socket_close($this->client);
-    }
-}
 
 $hostIP = gethostbyname('router');
 $port = 50000;
