@@ -37,7 +37,7 @@ if ($buffer === null)
 socket_close($socket);
 
 $bufferJson = json_decode($buffer, true);
-if ($bufferJson['response'] == failure)
+if ($bufferJson['response'] == 'failure')
 {
     http_response_code(404);
     die;
