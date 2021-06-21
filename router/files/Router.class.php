@@ -46,13 +46,43 @@ class Router
     {
         $variableMatches = [];
         preg_match_all("#{.*?}#", $requestSpecification['uri'], $variableMatches);
-
         $URISpecification = "#^{$requestSpecification['uri']}$#";
-        foreach ($variableMatches as $variableMatch)
+        foreach ($variableMatches[0] as $variableMatch)
         {
-            $URISpecification = str_replace($variableMatch, '[0-9]*', $URISpecification);
+            $variableName = substr($variableMatch, 1, -1);
+            $variableRegularExpression = $this->buildVariableRegularExpression($variableName, $requestSpecification['params']);
+            if ($variableRegularExpression === null)
+            {
+                return false;
+            }
+
+            $URISpecification = str_replace($variableMatch, $variableRegularExpression, $URISpecification);
         }
 
         return preg_match($URISpecification, $uri) === 1;
+    }
+
+    private function buildVariableRegularExpression($variableName, $params)
+    {
+        $matchingParams = array_filter($params, function($param) use ($variableName) {
+            return $param['name'] == $variableName;
+        });
+
+        if (count($matchingParams) == 0)
+        {
+            return null;
+        }
+
+        $matchingParams = array_values($matchingParams);
+
+        switch ($matchingParams[0]['type'])
+        {
+            case 'natural':
+                return '[0-9]*';
+            case 'alpha':
+                return '[a-zA-Z]*';
+            default:
+                return null;
+        }
     }
 }
