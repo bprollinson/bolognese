@@ -24,6 +24,11 @@ class Router
                 continue;
             }
 
+            if (!$this->URIsMatch($request->getURI(), $possibleRoute['request']))
+            {
+                continue;
+            }
+
             $methodInvocation = $possibleRoute['methodInvocation'];
 
             return new MethodInvocation(
@@ -35,5 +40,19 @@ class Router
         }
 
         return null;
+    }
+
+    private function URIsMatch($uri, $requestSpecification)
+    {
+        $variableMatches = [];
+        preg_match_all("#{.*?}#", $requestSpecification['uri'], $variableMatches);
+
+        $URISpecification = "#^{$requestSpecification['uri']}$#";
+        foreach ($variableMatches as $variableMatch)
+        {
+            $URISpecification = str_replace($variableMatch, '[0-9]*', $URISpecification);
+        }
+
+        return preg_match($URISpecification, $uri) === 1;
     }
 }

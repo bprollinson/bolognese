@@ -19,4 +19,9 @@ class Request
     {
         return $this->method;
     }
+
+    public function getURI()
+    {
+        return $this->uri;
+    }
 }
