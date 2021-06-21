@@ -24,35 +24,39 @@ if (!socket_listen($socket, 1))
     die;
 }
 
-if (!($client = socket_accept($socket)))
-{
-    socket_close($socket);
-    die;
-}
-
-$request = socket_read($client, 2048);
-$requestParameters = json_decode($request, true);
-
-$requestModel = new Request(
-    $requestParameters['method'],
-    $requestParameters['uri'],
-    $requestParameters['get'],
-    $requestParameters['post']
-);
 $router = new Router('/root/routes.json');
-$methodInvocation = $router->route($requestModel);
-if ($methodInvocation === null)
+
+while (true)
 {
-    $responseModel = new RouteNotFoundResponse();
+    if (!($client = socket_accept($socket)))
+    {
+        socket_close($socket);
+        die;
+    }
+
+    $request = socket_read($client, 2048);
+    $requestParameters = json_decode($request, true);
+
+    $requestModel = new Request(
+        $requestParameters['method'],
+        $requestParameters['uri'],
+        $requestParameters['get'],
+        $requestParameters['post']
+    );
+
+    $methodInvocation = $router->route($requestModel);
+    if ($methodInvocation === null)
+    {
+        $responseModel = new RouteNotFoundResponse();
+        $response = json_encode($responseModel->toArray());
+        socket_write($client, $response);
+        socket_close($client);
+        continue; 
+    }
+
+    $responseModel = new MethodInvocationResponse($methodInvocation);
     $response = json_encode($responseModel->toArray());
     socket_write($client, $response);
-    socket_close($socket);
-    die;
+
+    socket_close($client);
 }
-
-$responseModel = new MethodInvocationResponse($methodInvocation);
-$response = json_encode($responseModel->toArray());
-socket_write($client, $response);
-
-socket_close($client);
-socket_close($socket);
