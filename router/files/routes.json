@@ -11,6 +11,7 @@
             ]
         },
         "methodInvocation": {
+            "hostname": "controller",
             "namespace": null,
             "class": "EntityController",
             "method": "getEntity"

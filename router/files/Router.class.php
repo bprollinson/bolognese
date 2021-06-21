@@ -27,6 +27,7 @@ class Router
             $methodInvocation = $possibleRoute['methodInvocation'];
 
             return new MethodInvocation(
+                $methodInvocation['hostname'],
                 $methodInvocation['namespace'],
                 $methodInvocation['class'],
                 $methodInvocation['method']
