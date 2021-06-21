@@ -11,3 +11,7 @@ services:
     container_name: router
     hostname: router
     build: ./router
+  controller:
+    container_name: controller
+    hostname: controller
+    build: ./controller
