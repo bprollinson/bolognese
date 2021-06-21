@@ -2,6 +2,8 @@
 
 require_once('Request.class.php');
 require_once('Router.class.php');
+require_once('RouteNotFoundResponse.class.php');
+require_once('MethodInvocationResponse.class.php');
 
 if (!($socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
 {
@@ -41,11 +43,15 @@ $router = new Router('/root/routes.json');
 $methodInvocation = $router->route($requestModel);
 if ($methodInvocation === null)
 {
+    $responseModel = new RouteNotFoundResponse();
+    $response = json_encode($responseModel->toArray());
+    socket_write($client, $response);
     socket_close($socket);
     die;
 }
 
-$response = json_encode($methodInvocation->toArray());
+$responseModel = new MethodInvocationResponse($methodInvocation);
+$response = json_encode($responseModel->toArray());
 socket_write($client, $response);
 
 socket_close($client);
