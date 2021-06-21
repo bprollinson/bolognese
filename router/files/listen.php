@@ -5,22 +5,90 @@ require_once('Router.class.php');
 require_once('RouteNotFoundResponse.class.php');
 require_once('MethodInvocationResponse.class.php');
 
-if (!($socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
+class SocketProvider
 {
-    socket_close($socket);
-    die;
+    private $hostIP;
+    private $port;
+    private $socket;
+
+    public function __construct($hostIP, $port)
+    {
+        $this->hostIP = $hostIP;
+        $this->port = $port;
+    }
+
+    public function initialize()
+    {
+        $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        if ($this->socket === false)
+        {
+            return false;
+        }
+
+        $success = socket_bind($this->socket, $this->hostIP, $this->port);
+        if (!$success)
+        {
+            socket_close($this->socket);
+            return false;
+        }
+
+        $success = socket_listen($this->socket, 1);
+        if (!$success)
+        {
+            socket_close($this->socket);
+            return false;
+        }
+
+        return true;
+    }
+
+    public function shutDown()
+    {
+        socket_close($this->socket);
+    }
+
+    public function acceptConnection()
+    {
+        $client = socket_accept($this->socket);
+        if ($client === false)
+        {
+            return null;
+        }
+
+        return new SocketConnection($client);
+    }
+}
+
+class SocketConnection
+{
+    private $client;
+
+    public function __construct($client)
+    {
+        $this->client = $client;
+    }
+
+    public function read()
+    {
+        return socket_read($this->client, 2048);
+    }
+
+    public function write($string)
+    {
+        socket_write($this->client, $string); 
+    }
+
+    public function close()
+    {
+        socket_close($this->client);
+    }
 }
 
 $hostIP = gethostbyname('router');
-if (!socket_bind($socket, $hostIP, 50000))
+$port = 50000;
+$socketProvider = new SocketProvider($hostIP, $port);
+if (!$socketProvider->initialize())
 {
-    socket_close($socket);
-    die;
-}
-
-if (!socket_listen($socket, 1))
-{
-    socket_close($socket);
     die;
 }
 
@@ -28,13 +96,14 @@ $router = new Router('/root/routes.json');
 
 while (true)
 {
-    if (!($client = socket_accept($socket)))
+    $client = $socketProvider->acceptConnection();
+    if ($client === null)
     {
-        socket_close($socket);
+        $socketProvider->shutDown();
         die;
     }
 
-    $request = socket_read($client, 2048);
+    $request = $client->read();
     $requestParameters = json_decode($request, true);
 
     $requestModel = new Request(
@@ -49,14 +118,14 @@ while (true)
     {
         $responseModel = new RouteNotFoundResponse();
         $response = json_encode($responseModel->toArray());
-        socket_write($client, $response);
-        socket_close($client);
+        $client->write($response);
+        $client->close();
         continue; 
     }
 
     $responseModel = new MethodInvocationResponse($methodInvocation);
     $response = json_encode($responseModel->toArray());
-    socket_write($client, $response);
+    $client->write($response);
 
-    socket_close($client);
+    $client->close();
 }
