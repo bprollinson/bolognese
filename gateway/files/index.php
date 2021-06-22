@@ -1,16 +1,58 @@
 <?php
 
-if (!($socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
+class ClientSocketConnection
 {
-    http_response_code(502);
-    die;
+    private $hostIP;
+    private $port;
+    private $socket;
+
+    public function __construct($hostIP, $port)
+    {
+        $this->hostIP = $hostIP;
+        $this->port = $port;
+    }
+
+    public function open()
+    {
+        $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        if ($this->socket === false)
+        {
+            return false;
+        }
+
+        $success = socket_connect($this->socket, $this->hostIP, 50000);
+        if (!$success)
+        {
+            socket_close($this->socket);
+            return false;
+        }
+
+        return true;
+    }
+
+    public function read()
+    {
+        $buffer = '';
+        socket_recv($this->socket, $buffer, 2048, MSG_WAITALL);
+
+        return $buffer;
+    }
+
+    public function write($message)
+    {
+        socket_send($this->socket, $message, strlen($message), 0);
+    }
+
+    public function close()
+    {
+        socket_close($this->socket);
+    }
 }
 
 $hostIP = gethostbyname('router');
-
-if (!($result = socket_connect($socket, $hostIP, 50000)))
+$connection = new ClientSocketConnection($hostIP, 50000);
+if (!$connection->open())
 {
-    socket_close($socket);
     http_response_code(502);
     die;
 }
@@ -22,25 +64,24 @@ $requestParameters = [
     'post' => $_POST
 ];
 $message = json_encode($requestParameters);
-socket_send($socket, $message, strlen($message), 0);
+$connection->write($message);
 
-$buffer = '';
-socket_recv($socket, $buffer, 2048, MSG_WAITALL);
+$response = $connection->read();
 
-if ($buffer === null)
+if ($response === null)
 {
     socket_close($socket);
     http_response_code(502);
     die;
 }
 
-socket_close($socket);
+$connection->close();
 
-$bufferJson = json_decode($buffer, true);
-if ($bufferJson['response'] == 'failure')
+$responseJson = json_decode($response, true);
+if ($responseJson['response'] == 'failure')
 {
     http_response_code(404);
     die;
 }
 
-echo $buffer;
+echo $response;
