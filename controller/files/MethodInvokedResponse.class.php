@@ -13,7 +13,7 @@ class MethodInvokedResponse
     {
         return [
             'response' => 'success',
-            'body' => $this->methodInvocation->toArray()
+            'body' => $this->methodInvoked->toArray()
         ];
     }
 }
