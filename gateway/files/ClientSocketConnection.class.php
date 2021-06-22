@@ -20,7 +20,7 @@ class ClientSocketConnection
             return false;
         }
 
-        $success = socket_connect($this->socket, $this->hostIP, 50000);
+        $success = socket_connect($this->socket, $this->hostIP, $this->port);
         if (!$success)
         {
             socket_close($this->socket);

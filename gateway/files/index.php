@@ -3,7 +3,8 @@
 require_once('ClientSocketConnection.class.php');
 
 $hostIP = gethostbyname('router');
-$connection = new ClientSocketConnection($hostIP, 50000);
+$port = 50000;
+$connection = new ClientSocketConnection($hostIP, $port);
 if (!$connection->open())
 {
     http_response_code(502);
@@ -38,3 +39,23 @@ if ($responseJson['response'] == 'failure')
 }
 
 echo $response;
+
+$hostIP = gethostbyname('controller');
+$port = 50001;
+$connection = new ClientSocketConnection($hostIP, $port);
+
+if (!$connection->open())
+{
+    http_response_code(502);
+    die;
+}
+
+$requestParameters = $responseJson['body'];
+$message = json_encode($requestParameters);
+$connection->write($message);
+
+$response = $connection->read();
+
+echo $response;
+
+$connection->close();
