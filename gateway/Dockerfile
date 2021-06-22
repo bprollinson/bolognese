@@ -5,8 +5,7 @@ RUN cp -p /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak
 RUN sed -i 's@^#LoadModule rewrite_module modules/mod_rewrite\.so@LoadModule rewrite_module modules/mod_rewrite.so@' /etc/apache2/httpd.conf
 RUN sed -i '/<Directory "\/var\/www\/localhost\/htdocs">/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/httpd.conf
 
-COPY files/index.php /var/www/localhost/htdocs
-COPY files/.htaccess /var/www/localhost/htdocs
+COPY files/ /var/www/localhost/htdocs
 RUN rm /var/www/localhost/htdocs/index.html
 
 EXPOSE 80
