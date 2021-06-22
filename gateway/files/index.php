@@ -40,7 +40,7 @@ if ($responseJson['response'] == 'failure')
 
 echo $response;
 
-$hostIP = gethostbyname('controller');
+$hostIP = gethostbyname($responseJson['body']['hostname']);
 $port = 50001;
 $connection = new ClientSocketConnection($hostIP, $port);
 
