@@ -3,8 +3,6 @@
 require_once('SocketProvider.class.php');
 require_once('MethodInvocation.class.php');
 require_once('MethodInvoker.class.php');
-require_once('MethodNotFoundResponse.class.php');
-require_once('MethodInvokedResponse.class.php');
 
 $hostIP = gethostbyname('controller');
 $port = 50001;
@@ -35,17 +33,7 @@ while (true)
         $requestParameters['method']
     );
 
-    $methodInvoked = $methodInvoker->invoke($requestModel);
-    if ($methodInvoked === null)
-    {
-        $responseModel = new MethodNotFoundResponse();
-        $response = json_encode($responseModel->toArray());
-        $client->write($response);
-        $client->close();
-        continue; 
-    }
-
-    $responseModel = new MethodInvokedResponse($methodInvoked);
+    $responseModel = $methodInvoker->invoke($requestModel);
     $response = json_encode($responseModel->toArray());
     $client->write($response);
 

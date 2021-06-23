@@ -15,6 +15,11 @@ class MethodInvocation
         $this->method = $method;
     }
 
+    public function getClass()
+    {
+        return $this->class;
+    }
+
     public function toArray()
     {
         return [
