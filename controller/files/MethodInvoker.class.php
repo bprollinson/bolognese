@@ -1,6 +1,5 @@
 <?php
 
-require_once('MethodInvoked.class.php');
 require_once('MethodNotFoundResponse.class.php');
 require_once('MethodInvokedResponse.class.php');
 
@@ -8,15 +7,30 @@ class MethodInvoker
 {
     public function invoke(MethodInvocation $methodInvocation)
     {
-        $class = $methodInvocation->getClass();
-        $classFileName = "{$class}.class.php";
+        $className = $methodInvocation->getClass();
+        $classFileName = dirname(__FILE__) . "/{$className}.class.php";
 
-        if (file_exists($classFileName))
+        if (!file_exists($classFileName))
         {
-            $methodInvoked = new MethodInvoked('entity_created', 1);
-            return new MethodInvokedResponse($methodInvoked);
+            return new MethodNotFoundResponse();
         }
 
-        return new MethodNotFoundResponse();
+        require_once($classFileName);
+
+        if (!class_exists($className, false))
+        {
+            return new MethodNotFoundResponse();
+        }
+
+        $method = $methodInvocation->getMethod();
+        if (!method_exists($className, $method))
+        {
+            return new MethodNotFoundResponse();
+        }
+
+        $classInstance = new $className();
+        $methodInvoked = $classInstance->$method();
+
+        return new MethodInvokedResponse($methodInvoked);
     }
 }

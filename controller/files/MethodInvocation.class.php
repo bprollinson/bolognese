@@ -20,6 +20,11 @@ class MethodInvocation
         return $this->class;
     }
 
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
     public function toArray()
     {
         return [
