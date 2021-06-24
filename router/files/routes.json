@@ -16,5 +16,17 @@
             "class": "EntityController",
             "method": "getEntity"
         }
+    },
+    {
+        "request": {
+            "method": "POST",
+            "uri": "/entity"
+        },
+        "methodInvocation": {
+            "hostname": "controller",
+            "namespace": null,
+            "class": "EntityController",
+            "method": "createEntity"
+        }
     }
 ]

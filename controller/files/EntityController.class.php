@@ -8,4 +8,9 @@ class EntityController
     {
         return new MethodInvoked('entity_fetched', 1);
     }
+
+    public function createEntity()
+    {
+        return new MethodInvoked('entity_created', 1);
+    }
 }
