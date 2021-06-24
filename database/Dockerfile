@@ -4,4 +4,7 @@ RUN apk add mysql-client mysql
 
 RUN mysql_install_db --user=mysql --ldata=/var/lib/mysql
 
-CMD ["mysqld_safe"]
+COPY files/ /root
+RUN chmod u+x /root/start_mysql
+
+CMD ["/root/start_mysql"]

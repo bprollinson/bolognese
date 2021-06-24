@@ -1,0 +1,6 @@
+CREATE DATABASE webapp;
+CREATE TABLE webapp.entity (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(100),
+  PRIMARY KEY (id)
+);

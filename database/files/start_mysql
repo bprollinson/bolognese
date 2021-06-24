@@ -1,0 +1,13 @@
+#!/bin/sh
+
+mysqld_safe &
+while true; do
+    if [ $(mysqladmin status | grep Uptime | wc -l) -ge 1 ]; then
+        break
+    fi
+    sleep 1
+done
+
+mysql -u root < /root/schema.sql
+
+tail -f /dev/null
