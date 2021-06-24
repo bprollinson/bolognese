@@ -15,3 +15,7 @@ services:
     container_name: controller
     hostname: controller
     build: ./controller
+  database:
+    container_name: database
+    hostname: database
+    build: ./database
