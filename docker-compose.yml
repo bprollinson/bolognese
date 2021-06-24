@@ -15,6 +15,10 @@ services:
     container_name: controller
     hostname: controller
     build: ./controller
+  database_client:
+    container_name: database_client
+    hostname: database_client
+    build: database_client
   database:
     container_name: database
     hostname: database
