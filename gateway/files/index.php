@@ -24,7 +24,7 @@ $response = $connection->read();
 
 if ($response === null)
 {
-    socket_close($socket);
+    $connection->close();
     http_response_code(502);
     die;
 }

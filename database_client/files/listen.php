@@ -24,9 +24,9 @@ while (true)
     }
 
     $request = $client->read();
-    $requestParaneters = json_decode($request, true);
+    $requestParameters = json_decode($request, true);
 
-    $requestModel = new QueryExecution($request['type'], $request['query']);
+    $requestModel = new QueryExecution($requestParameters['type'], $requestParameters['query']);
 
     $responseModel = $queryExecutor->execute($requestModel);
     $response = json_encode($responseModel->toArray());
