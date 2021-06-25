@@ -12,7 +12,7 @@ class EntityController
         $connection = new ClientSocketConnection($hostIP, $port);
         if (!$connection->open())
         {
-            return new MethodInvoked('entity_fetched', 0);
+            return new MethodInvoked('entities_counted', 0);
         }
 
         $requestParameters = [
@@ -37,12 +37,12 @@ class EntityController
         $connection = new ClientSocketConnection($hostIP, $port);
         if (!$connection->open())
         {
-            return new MethodInvoked('entity_fetched', 0);
+            return new MethodInvoked('entity_fetched', null);
         }
 
         $requestParameters = [
-            'type' => 'select_scalar',
-            'query' => 'SELECT COUNT(1) FROM entity'
+            'type' => 'select_single_row',
+            'query' => 'SELECT id, name FROM entity WHERE id = 1'
         ];
         $message = json_encode($requestParameters);
         $connection->write($message);
@@ -62,7 +62,7 @@ class EntityController
         $connection = new ClientSocketConnection($hostIP, $port);
         if (!$connection->open())
         {
-            return new MethodInvoked('entity_fetched', 0);
+            return new MethodInvoked('entity_created', null);
         }
 
         $requestParameters = [
