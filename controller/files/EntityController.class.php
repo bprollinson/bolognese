@@ -57,6 +57,26 @@ class EntityController
 
     public function createEntity()
     {
+        $hostIP = gethostbyname('database_client');
+        $port = 50002;
+        $connection = new ClientSocketConnection($hostIP, $port);
+        if (!$connection->open())
+        {
+            return new MethodInvoked('entity_fetched', 0);
+        }
+
+        $requestParameters = [
+            'type' => 'execute',
+            'query' => "INSERT INTO entity(name) VALUES ('test')"
+        ];
+        $message = json_encode($requestParameters);
+        $connection->write($message);
+
+        $response = $connection->read();
+        $connection->close();
+
+        $responseJson = json_decode($response, true);
+
         return new MethodInvoked('entity_created', 1);
     }
 }
