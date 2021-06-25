@@ -2,6 +2,18 @@
     {
         "request": {
             "method": "GET",
+            "uri": "/entity/count"
+        },
+        "methodInvocation": {
+            "hostname": "controller",
+            "namespace": null,
+            "class": "EntityController",
+            "method": "countEntities"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
             "uri": "/entity/{id}",
             "params": [
                 {
