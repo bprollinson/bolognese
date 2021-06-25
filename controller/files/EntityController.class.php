@@ -66,7 +66,7 @@ class EntityController
         }
 
         $requestParameters = [
-            'type' => 'execute',
+            'type' => 'insert',
             'query' => "INSERT INTO entity(name) VALUES ('test')"
         ];
         $message = json_encode($requestParameters);
@@ -77,6 +77,6 @@ class EntityController
 
         $responseJson = json_decode($response, true);
 
-        return new MethodInvoked('entity_created', 1);
+        return new MethodInvoked('entity_created', $responseJson['result']);
     }
 }

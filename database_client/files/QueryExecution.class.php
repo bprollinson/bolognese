@@ -11,6 +11,11 @@ class QueryExecution
         $this->query = $query;
     }
 
+    public function getType()
+    {
+        return $this->type;
+    }
+
     public function getQuery()
     {
         return $this->query;

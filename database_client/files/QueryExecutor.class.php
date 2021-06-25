@@ -15,6 +15,14 @@ class QueryExecutor
         $statement = $pdo->prepare($execution->getQuery());
         $statement->execute();
 
-        return new ScalarSelectExecuted($statement->fetchColumn());
+        switch ($execution->getType())
+        {
+            case 'select_scalar':
+                return new ScalarSelectExecuted($statement->fetchColumn());
+            case 'insert':
+                return new ScalarSelectExecuted($pdo->lastInsertId());
+            default:
+                return null;
+        }
     }
 }
