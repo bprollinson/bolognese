@@ -105,4 +105,30 @@ class EntityController
 
         return new MethodInvoked('entity_created', $responseJson['result']);
     }
+
+    public function deleteEntity($parameterValues)
+    {
+        $hostIP = gethostbyname('database_client');
+        $port = 50002;
+        $connection = new ClientSocketConnection($hostIP, $port);
+        if (!$connection->open())
+        {
+            return new MethodInvoked('entity_deleted', false);
+        }
+
+        $id = $parameterValues['id'];
+        $requestParameters = [
+            'type' => 'execute',
+            'query' => "DELETE FROM entity WHERE id = {$id}"
+        ];
+        $message = json_encode($requestParameters);
+        $connection->write($message);
+
+        $response = $connection->read();
+        $connection->close();
+
+        $responseJson = json_decode($response, true);
+
+        return new MethodInvoked('entity_deleted', $responseJson['result']);
+    }
 }

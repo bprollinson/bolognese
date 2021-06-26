@@ -25,6 +25,8 @@ class QueryExecutor
                 return new ScalarSelectExecuted($statement->fetch(PDO::FETCH_ASSOC));
             case 'insert':
                 return new ScalarSelectExecuted($pdo->lastInsertId());
+            case 'execute':
+                return new ScalarSelectExecuted(true);
             default:
                 return null;
         }

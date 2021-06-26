@@ -52,5 +52,23 @@
             "class": "EntityController",
             "method": "createEntity"
         }
+    },
+    {
+        "request": {
+            "method": "DELETE",
+            "uri": "/entity/{id}",
+            "params": [
+                {
+                    "name": "id",
+                    "type": "natural"
+                }
+            ]
+        },
+        "methodInvocation": {
+            "hostname": "controller",
+            "namespace": null,
+            "class": "EntityController",
+            "method": "deleteEntity"
+        }
     }
 ]
