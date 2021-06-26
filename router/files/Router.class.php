@@ -24,7 +24,8 @@ class Router
                 continue;
             }
 
-            if (!$this->URIsMatch($request->getURI(), $possibleRoute['request']))
+            $parameterValues = [];
+            if (!$this->URIsMatch($request->getURI(), $possibleRoute['request'], $parameterValues))
             {
                 continue;
             }
@@ -35,31 +36,43 @@ class Router
                 $methodInvocation['hostname'],
                 $methodInvocation['namespace'],
                 $methodInvocation['class'],
-                $methodInvocation['method']
+                $methodInvocation['method'],
+                $parameterValues
             );
         }
 
         return null;
     }
 
-    private function URIsMatch($uri, $requestSpecification)
+    private function URIsMatch($uri, $requestSpecification, &$parameterValues)
     {
         $variableMatches = [];
         preg_match_all("#{.*?}#", $requestSpecification['uri'], $variableMatches);
         $URISpecification = "#^{$requestSpecification['uri']}$#";
+        $variableNames = [];
         foreach ($variableMatches[0] as $variableMatch)
         {
             $variableName = substr($variableMatch, 1, -1);
+            $variableNames[] = $variableName;
             $variableRegularExpression = $this->buildVariableRegularExpression($variableName, $requestSpecification['params']);
             if ($variableRegularExpression === null)
             {
                 return false;
             }
 
-            $URISpecification = str_replace($variableMatch, $variableRegularExpression, $URISpecification);
+            $URISpecification = str_replace($variableMatch, "($variableRegularExpression)", $URISpecification);
         }
 
-        return preg_match($URISpecification, $uri) === 1;
+        $matches = [];
+        $result = preg_match($URISpecification, $uri, $matches) === 1;
+
+        if ($result)
+        {
+            array_shift($matches);
+            $parameterValues = array_combine($variableNames, $matches);
+        }
+
+        return $result;
     }
 
     private function buildVariableRegularExpression($variableName, $params)

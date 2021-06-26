@@ -5,7 +5,7 @@ require_once('MethodInvoked.class.php');
 
 class EntityController
 {
-    public function countEntities()
+    public function countEntities($parameterValues)
     {
         $hostIP = gethostbyname('database_client');
         $port = 50002;
@@ -30,7 +30,7 @@ class EntityController
         return new MethodInvoked('entites_counted', $responseJson['result']);
     }
 
-    public function getEntities()
+    public function getEntities($parameterValues)
     {
         $hostIP = gethostbyname('database_client');
         $port = 50002;
@@ -55,7 +55,7 @@ class EntityController
         return new MethodInvoked('entites_fetched', $responseJson['result']);
     }
 
-    public function getEntity()
+    public function getEntity($parameterValues)
     {
         $hostIP = gethostbyname('database_client');
         $port = 50002;
@@ -65,9 +65,10 @@ class EntityController
             return new MethodInvoked('entity_fetched', null);
         }
 
+        $id = $parameterValues['id'];
         $requestParameters = [
             'type' => 'select_single_row',
-            'query' => 'SELECT id, name FROM entity WHERE id = 1'
+            'query' => "SELECT id, name FROM entity WHERE id = {$id}"
         ];
         $message = json_encode($requestParameters);
         $connection->write($message);
@@ -80,7 +81,7 @@ class EntityController
         return new MethodInvoked('entity_fetched', $responseJson['result']);
     }
 
-    public function createEntity()
+    public function createEntity($parameterValues)
     {
         $hostIP = gethostbyname('database_client');
         $port = 50002;

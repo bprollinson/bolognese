@@ -29,7 +29,7 @@ class MethodInvoker
         }
 
         $classInstance = new $className();
-        $methodInvoked = $classInstance->$method();
+        $methodInvoked = $classInstance->$method($methodInvocation->getParameterValues());
 
         return new MethodInvokedResponse($methodInvoked);
     }
