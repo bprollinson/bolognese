@@ -14,6 +14,18 @@
     {
         "request": {
             "method": "GET",
+            "uri": "/entity"
+        },
+        "methodInvocation": {
+            "hostname": "controller",
+            "namespace": null,
+            "class": "EntityController",
+            "method": "getEntities"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
             "uri": "/entity/{id}",
             "params": [
                 {

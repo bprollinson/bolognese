@@ -19,6 +19,8 @@ class QueryExecutor
         {
             case 'select_scalar':
                 return new ScalarSelectExecuted($statement->fetchColumn());
+            case 'select':
+                return new ScalarSelectExecuted($statement->fetchAll(PDO::FETCH_ASSOC));
             case 'select_single_row':
                 return new ScalarSelectExecuted($statement->fetch(PDO::FETCH_ASSOC));
             case 'insert':

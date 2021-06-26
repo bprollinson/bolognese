@@ -30,6 +30,31 @@ class EntityController
         return new MethodInvoked('entites_counted', $responseJson['result']);
     }
 
+    public function getEntities()
+    {
+        $hostIP = gethostbyname('database_client');
+        $port = 50002;
+        $connection = new ClientSocketConnection($hostIP, $port);
+        if (!$connection->open())
+        {
+            return new MethodInvoked('entities_fetched', []);
+        }
+
+        $requestParameters = [
+            'type' => 'select',
+            'query' => 'SELECT id, name FROM entity'
+        ];
+        $message = json_encode($requestParameters);
+        $connection->write($message);
+
+        $response = $connection->read();
+        $connection->close();
+
+        $responseJson = json_decode($response, true);
+
+        return new MethodInvoked('entites_fetched', $responseJson['result']);
+    }
+
     public function getEntity()
     {
         $hostIP = gethostbyname('database_client');
