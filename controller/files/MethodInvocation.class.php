@@ -7,14 +7,18 @@ class MethodInvocation
     private $class;
     private $method;
     private $parameterValues;
+    private $getValues;
+    private $postValues;
 
-    public function __construct($hostname, $namespace, $class, $method, $parameterValues)
+    public function __construct($hostname, $namespace, $class, $method, $parameterValues, $getValues, $postValues)
     {
         $this->hostname = $hostname;
         $this->namespace = $namespace;
         $this->class = $class;
         $this->method = $method;
         $this->parameterValues = $parameterValues;
+        $this->getValues = $getValues;
+        $this->postValues = $postValues;
     }
 
     public function getClass()
@@ -30,6 +34,16 @@ class MethodInvocation
     public function getParameterValues()
     {
         return $this->parameterValues;
+    }
+
+    public function getGetValues()
+    {
+        return $this->getValues;
+    }
+
+    public function getPostValues()
+    {
+        return $this->postValues;
     }
 
     public function toArray()

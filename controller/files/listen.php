@@ -31,7 +31,9 @@ while (true)
         $requestParameters['namespace'],
         $requestParameters['class'],
         $requestParameters['method'],
-        $requestParameters['parameter_values']
+        $requestParameters['parameter_values'],
+        $requestParameters['get_values'],
+        $requestParameters['post_values']
     );
 
     $responseModel = $methodInvoker->invoke($requestModel);

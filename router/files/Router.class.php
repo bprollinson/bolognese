@@ -37,7 +37,9 @@ class Router
                 $methodInvocation['namespace'],
                 $methodInvocation['class'],
                 $methodInvocation['method'],
-                $parameterValues
+                $parameterValues,
+                $request->getGet(),
+                $request->getPost()
             );
         }
 

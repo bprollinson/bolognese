@@ -10,12 +10,12 @@ if (!$connection->open())
     http_response_code(502);
     die;
 }
-
+$post = json_decode(file_get_contents('php://input'), true);
 $requestParameters = [
     'method' => $_SERVER['REQUEST_METHOD'],
     'uri' => $_SERVER['REQUEST_URI'],
     'get' => $_GET,
-    'post' => $_POST
+    'post' => $post
 ];
 $message = json_encode($requestParameters);
 $connection->write($message);

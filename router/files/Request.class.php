@@ -24,4 +24,14 @@ class Request
     {
         return $this->uri;
     }
+
+    public function getGet()
+    {
+        return $this->get;
+    }
+
+    public function getPost()
+    {
+        return $this->post;
+    }
 }
