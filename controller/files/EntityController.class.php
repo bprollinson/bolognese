@@ -1,5 +1,6 @@
 <?php
 
+require_once('DatabaseClientClient.class.php');
 require_once('ClientSocketConnection.class.php');
 require_once('MethodInvoked.class.php');
 
@@ -9,25 +10,17 @@ class EntityController
     {
         $hostIP = gethostbyname('database_client');
         $port = 50002;
-        $connection = new ClientSocketConnection($hostIP, $port);
-        if (!$connection->open())
+        $databaseClientClient = new DatabaseClientClient($hostIP, $port);
+
+        try
+        {
+            $count = $databaseClientClient->selectScalar('SELECT COUNT(1) FROM entity');
+            return new MethodInvoked('entities_counted', $count);
+        }
+        catch (DatabaseFailureException $dfe)
         {
             return new MethodInvoked('entities_counted', 0);
         }
-
-        $requestParameters = [
-            'type' => 'select_scalar',
-            'query' => 'SELECT COUNT(1) FROM entity'
-        ];
-        $message = json_encode($requestParameters);
-        $connection->write($message);
-
-        $response = $connection->read();
-        $connection->close();
-
-        $responseJson = json_decode($response, true);
-
-        return new MethodInvoked('entites_counted', $responseJson['result']);
     }
 
     public function getEntities($parameterValues, $getValues, $postValues)
