@@ -18,7 +18,11 @@ services:
   database_client:
     container_name: database_client
     hostname: database_client
-    build: database_client
+    build: ./database_client
+  response_formatter:
+    container_name: response_formatter
+    hostname: response_formatter
+    build: ./response_formatter
   database:
     container_name: database
     hostname: database
