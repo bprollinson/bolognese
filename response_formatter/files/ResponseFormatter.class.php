@@ -17,8 +17,10 @@ class ResponseFormatter
                 break;
             case 'entity_created':
                 $httpResponse = new HTTPResponse(201, json_encode($methodInvoked->getResponseValue()));
+                break;
             default:
                 $httpResponse = new HTTPResponse(200, json_encode($methodInvoked->getResponseValue()));
+                break;
         }
 
         return new ResponseFormatted($httpResponse);
