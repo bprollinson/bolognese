@@ -1,5 +1,8 @@
 <?php
 
+require_once('ClientSocketConnection.class.php');
+require_once('DatabaseFailureException.class.php');
+
 class DatabaseClientClient
 {
     private $hostIP;
@@ -13,6 +16,31 @@ class DatabaseClientClient
 
     public function selectScalar($sql)
     {
+        return $this->runQuery('select_scalar', $sql);
+    }
+
+    public function select($sql)
+    {
+        return $this->runQuery('select', $sql);
+    }
+
+    public function selectSingleRow($sql)
+    {
+        return $this->runQuery('select_single_row', $sql);
+    }
+
+    public function insert($sql)
+    {
+        return $this->runQuery('insert', $sql);
+    }
+
+    public function execute($sql)
+    {
+        return $this->runQuery('execute', $sql);
+    }
+
+    private function runQuery($type, $sql)
+    {
         $connection = new ClientSocketConnection($this->hostIP, $this->port);
         if (!$connection->open())
         {
@@ -20,7 +48,7 @@ class DatabaseClientClient
         }
 
         $requestParameters = [
-            'type' => 'select_scalar',
+            'type' => $type,
             'query' => $sql
         ];
         $message = json_encode($requestParameters);
