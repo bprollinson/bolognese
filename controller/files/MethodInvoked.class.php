@@ -15,7 +15,7 @@ class MethodInvoked
     {
         return [
             'response' => $this->response,
-            'responseValue' => $this->responseValue
+            'response_value' => $this->responseValue
         ];
     }
 }

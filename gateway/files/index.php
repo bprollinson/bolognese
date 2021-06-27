@@ -38,8 +38,6 @@ if ($responseJson['response'] == 'failure')
     die;
 }
 
-echo $response;
-
 $hostIP = gethostbyname($responseJson['body']['hostname']);
 $port = 50001;
 $connection = new ClientSocketConnection($hostIP, $port);
@@ -56,6 +54,56 @@ $connection->write($message);
 
 $response = $connection->read();
 
-echo $response;
+if ($response === null)
+{
+    $connection->close();
+    http_response_code(502);
+    die;
+}
 
 $connection->close();
+
+$responseJson = json_decode($response, true);
+if ($responseJson['response'] == 'failure')
+{
+    http_response_code(404);
+    die;
+}
+
+$hostIP = gethostbyname('response_formatter');
+$port = 50003;
+$connection = new ClientSocketConnection($hostIP, $port);
+
+if (!$connection->open())
+{
+    http_response_code(502);
+    die;
+}
+
+$requestParameters = $responseJson['body'];
+$message = json_encode($requestParameters);
+$connection->write($message);
+
+$response = $connection->read();
+
+if ($response === null)
+{
+    $connection->close();
+    http_response_code(502);
+    die;
+}
+
+$connection->close();
+
+$responseJson = json_decode($response, true);
+if ($responseJson['response'] == 'failure')
+{
+    http_response_code(502);
+    die;
+}
+
+http_response_code($responseJson['body']['status_code']);
+if ($responseJson['body']['response_value'] !== null)
+{
+    echo $responseJson['body']['response_value'];
+}

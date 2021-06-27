@@ -5,7 +5,7 @@ class HTTPResponse
     private $statusCode;
     private $responseValue;
 
-    public function __construct()
+    public function __construct($statusCode, $responseValue)
     {
         $this->statusCode = $statusCode;
         $this->responseValue = $responseValue;
