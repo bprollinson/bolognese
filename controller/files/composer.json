@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-socket-client"
+        }
+    ],
+    "require": {
+        "bprollinson/bolognese-socket-client": "dev-master"
+    }
+}

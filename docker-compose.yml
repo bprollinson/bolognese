@@ -5,6 +5,8 @@ services:
     container_name: gateway
     hostname: gateway
     build: ./gateway
+    volumes:
+      - ./gateway/files:/var/www/localhost/htdocs
     ports:
       - 80:80
   router:
@@ -15,6 +17,8 @@ services:
     container_name: controller
     hostname: controller
     build: ./controller
+    volumes:
+    - ./controller/files:/root
   database_client:
     container_name: database_client
     hostname: database_client

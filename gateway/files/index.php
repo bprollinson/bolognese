@@ -1,6 +1,6 @@
 <?php
 
-require_once('ClientSocketConnection.class.php');
+require_once('vendor/bprollinson/bolognese-socket-client/src/ClientSocketConnection.class.php');
 
 $hostIP = gethostbyname('router');
 $port = 50000;
