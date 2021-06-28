@@ -22,7 +22,12 @@ class QueryExecutor
             case 'select':
                 return new ScalarSelectExecuted($statement->fetchAll(PDO::FETCH_ASSOC));
             case 'select_single_row':
-                return new ScalarSelectExecuted($statement->fetch(PDO::FETCH_ASSOC));
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                if ($result === false)
+                {
+                    $result = null;
+                }
+                return new ScalarSelectExecuted($result);
             case 'insert':
                 return new ScalarSelectExecuted($pdo->lastInsertId());
             case 'execute':

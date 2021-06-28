@@ -47,6 +47,10 @@ class EntityController
         {
             $id = $parameterValues['id'];
             $entity = $this->databaseClientClient->selectSingleRow("SELECT id, name FROM entity WHERE id = {$id}");
+            if ($entity === null)
+            {
+                return new MethodInvoked('entity_not_found', $entity);
+            }
             return new MethodInvoked('entity_fetched', $entity);
         }
         catch (DatabaseFailureException $dfe)

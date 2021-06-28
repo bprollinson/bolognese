@@ -103,7 +103,7 @@ if ($responseJson['response'] == 'failure')
 }
 
 http_response_code($responseJson['body']['status_code']);
-if ($responseJson['body']['response_value'] !== null)
+if ($responseJson['body']['response_value'] != 'null')
 {
     echo $responseJson['body']['response_value'];
 }
