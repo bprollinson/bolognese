@@ -79,12 +79,18 @@ class EntityController
         try
         {
             $id = $parameterValues['id'];
+            $entity = $this->databaseClientClient->selectSingleRow("SELECT id, name FROM entity WHERE id = {$id}");
+            if ($entity === null)
+            {
+                return new MethodInvoked('entity_not_found', $entity);
+            }
+
             $this->databaseClientClient->execute("DELETE FROM entity WHERE id = {$id}");
-            return new MethodInvoked('entity_deleted', true);
+            return new MethodInvoked('entity_deleted', $entity);
         }
         catch (DatabaseFailureException $dfe)
         {
-            return new MethodInvoked('entity_deleted', false);
+            return new MethodInvoked('entity_deleted', null);
         }
     }
 }
