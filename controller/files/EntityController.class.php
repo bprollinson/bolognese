@@ -61,7 +61,8 @@ class EntityController
         {
             $name = $postValues['name'];
             $id = $this->databaseClientClient->insert("INSERT INTO entity(name) VALUES ('{$name}')");
-            return new MethodInvoked('entity_created', $id);
+            $entity = $this->databaseClientClient->selectSingleRow("SELECT id, name FROM entity WHERE id = {$id}");
+            return new MethodInvoked('entity_created', $entity);
         }
         catch (DatabaseFailureException $dfe)
         {
