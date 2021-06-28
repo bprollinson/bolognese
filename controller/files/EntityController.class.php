@@ -19,7 +19,7 @@ class EntityController
     {
         try
         {
-            $count = $this->databaseClientClient->selectScalar('SELECT COUNT(1) FROM entity');
+            $count = (int)$this->databaseClientClient->selectScalar('SELECT COUNT(1) FROM entity');
             return new MethodInvoked('entities_counted', $count);
         }
         catch (DatabaseFailureException $dfe)
