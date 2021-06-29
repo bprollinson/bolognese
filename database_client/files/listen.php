@@ -1,12 +1,12 @@
 <?php
 
-require_once('SocketProvider.class.php');
+require_once('ServerSocketProvider.class.php');
 require_once('QueryExecution.class.php');
 require_once('QueryExecutor.class.php');
 
 $hostIP = gethostbyname('database_client');
 $port = 50002;
-$socketProvider = new SocketProvider($hostIP, $port);
+$socketProvider = new ServerSocketProvider($hostIP, $port);
 if (!$socketProvider->initialize())
 {
     die;

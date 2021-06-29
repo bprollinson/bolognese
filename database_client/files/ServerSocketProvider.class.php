@@ -2,7 +2,7 @@
 
 require_once('ServerSocketConnection.class.php');
 
-class SocketProvider
+class ServerSocketProvider
 {
     private $hostIP;
     private $port;

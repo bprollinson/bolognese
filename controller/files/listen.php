@@ -1,12 +1,12 @@
 <?php
 
-require_once('SocketProvider.class.php');
+require_once('ServerSocketProvider.class.php');
 require_once('MethodInvocation.class.php');
 require_once('MethodInvoker.class.php');
 
 $hostIP = gethostbyname('controller');
 $port = 50001;
-$socketProvider = new SocketProvider($hostIP, $port);
+$socketProvider = new ServerSocketProvider($hostIP, $port);
 if (!$socketProvider->initialize())
 {
     die;

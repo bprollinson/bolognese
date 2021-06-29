@@ -1,6 +1,6 @@
 <?php
 
-require_once('SocketProvider.class.php');
+require_once('ServerSocketProvider.class.php');
 require_once('Request.class.php');
 require_once('Router.class.php');
 require_once('RouteNotFoundResponse.class.php');
@@ -8,7 +8,7 @@ require_once('MethodInvocationResponse.class.php');
 
 $hostIP = gethostbyname('router');
 $port = 50000;
-$socketProvider = new SocketProvider($hostIP, $port);
+$socketProvider = new ServerSocketProvider($hostIP, $port);
 if (!$socketProvider->initialize())
 {
     die;
