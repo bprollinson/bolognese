@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /root
+composer install
+
+php /root/listen.php

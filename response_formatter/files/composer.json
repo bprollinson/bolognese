@@ -2,15 +2,10 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/bprollinson/bolognese-socket-client"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-socket-server"
         }
     ],
     "require": {
-        "bprollinson/bolognese-socket-client": "dev-master",
         "bprollinson/bolognese-socket-server": "dev-master"
     }
 }

@@ -18,7 +18,7 @@ services:
     hostname: controller
     build: ./controller
     volumes:
-    - ./controller/files:/root
+      - ./controller/files:/root
   database_client:
     container_name: database_client
     hostname: database_client
@@ -27,6 +27,8 @@ services:
     container_name: response_formatter
     hostname: response_formatter
     build: ./response_formatter
+    volumes:
+      - ./response_formatter/files:/root
   database:
     container_name: database
     hostname: database
