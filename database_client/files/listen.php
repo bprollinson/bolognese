@@ -1,6 +1,6 @@
 <?php
 
-require_once('ServerSocketProvider.class.php');
+require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('QueryExecution.class.php');
 require_once('QueryExecutor.class.php');
 

@@ -25,6 +25,8 @@ services:
     container_name: database_client
     hostname: database_client
     build: ./database_client
+    volumes:
+    - ./database_client/files:/root
   response_formatter:
     container_name: response_formatter
     hostname: response_formatter
