@@ -1,6 +1,6 @@
 <?php
 
-require_once('SocketConnection.class.php');
+require_once('ServerSocketConnection.class.php');
 
 class SocketProvider
 {
@@ -52,6 +52,6 @@ class SocketProvider
             return null;
         }
 
-        return new SocketConnection($client);
+        return new ServerSocketConnection($client);
     }
 }
