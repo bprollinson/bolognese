@@ -1,6 +1,6 @@
 <?php
 
-require_once('MethodInvoked.class.php');
+require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvoked.class.php');
 require_once('ResponseFormatted.class.php');
 require_once('HTTPResponse.class.php');
 

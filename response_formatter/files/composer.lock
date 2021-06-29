@@ -4,8 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90a7baa75e117c55dfb8fb25edeb514d",
+    "content-hash": "f00bdb3a85d561676c2b42479d00ce9e",
     "packages": [
+        {
+            "name": "bprollinson/bolognese-controller-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-controller-api.git",
+                "reference": "3e06537f58c58abcad7243e5964048df342d2794"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-controller-api/zipball/3e06537f58c58abcad7243e5964048df342d2794",
+                "reference": "3e06537f58c58abcad7243e5964048df342d2794",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-controller-api/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-controller-api/issues"
+            },
+            "time": "2021-06-29T12:40:05+00:00"
+        },
         {
             "name": "bprollinson/bolognese-socket-server",
             "version": "dev-master",
@@ -33,7 +55,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "bprollinson/bolognese-socket-server": 20
+        "bprollinson/bolognese-socket-server": 20,
+        "bprollinson/bolognese-controller-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

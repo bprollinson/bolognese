@@ -1,7 +1,7 @@
 <?php
 
 require_once('DatabaseClientClient.class.php');
-require_once('MethodInvoked.class.php');
+require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvoked.class.php');
 require_once('DatabaseFailureException.class.php');
 
 class EntityController
