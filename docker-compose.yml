@@ -37,3 +37,5 @@ services:
     container_name: database
     hostname: database
     build: ./database
+    volumes:
+      - ./database/files:/root
