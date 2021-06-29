@@ -1,6 +1,6 @@
 <?php
 
-require_once('ServerSocketProvider.class.php');
+require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('Request.class.php');
 require_once('Router.class.php');
 require_once('RouteNotFoundResponse.class.php');

@@ -1,0 +1,43 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "90a7baa75e117c55dfb8fb25edeb514d",
+    "packages": [
+        {
+            "name": "bprollinson/bolognese-socket-server",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-socket-server.git",
+                "reference": "21f9b16068c4c178c88854b0196645b28006722d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-socket-server/zipball/21f9b16068c4c178c88854b0196645b28006722d",
+                "reference": "21f9b16068c4c178c88854b0196645b28006722d",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-socket-server/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-socket-server/issues"
+            },
+            "time": "2021-06-29T02:05:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "bprollinson/bolognese-socket-server": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
