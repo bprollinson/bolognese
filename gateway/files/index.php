@@ -103,6 +103,12 @@ if ($responseJson['response'] == 'failure')
 }
 
 http_response_code($responseJson['body']['status_code']);
+
+foreach ($responseJson['body']['response_headers'] as $key => $value)
+{
+    header("{$key}: {$value}");
+}
+
 if ($responseJson['body']['response_value'] != 'null')
 {
     echo $responseJson['body']['response_value'];

@@ -3,11 +3,13 @@
 class HTTPResponse
 {
     private $statusCode;
+    private $responseHeaders;
     private $responseValue;
 
-    public function __construct($statusCode, $responseValue)
+    public function __construct($statusCode, $responseHeaders, $responseValue)
     {
         $this->statusCode = $statusCode;
+        $this->responseHeaders = $responseHeaders;
         $this->responseValue = $responseValue;
     }
 
@@ -15,6 +17,7 @@ class HTTPResponse
     {
         return [
             'status_code' => $this->statusCode,
+            'response_headers' => $this->responseHeaders,
             'response_value' => $this->responseValue
         ];
     }

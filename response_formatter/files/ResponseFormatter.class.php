@@ -13,18 +13,24 @@ class ResponseFormatter
             case 'entities_counted':
             case 'entities_fetched':
             case 'entity_fetched':
-                $httpResponse = new HTTPResponse(200, json_encode($methodInvoked->getResponseValue())); 
+                $httpStatusCode = 200;
                 break;
             case 'entity_created':
-                $httpResponse = new HTTPResponse(201, json_encode($methodInvoked->getResponseValue()));
+                $httpStatusCode = 201;
                 break;
             case 'entity_not_found':
-                $httpResponse = new HTTPResponse(404, json_encode($methodInvoked->getResponseValue()));
+                $httpStatusCode = 404;
                 break;
             default:
-                $httpResponse = new HTTPResponse(200, json_encode($methodInvoked->getResponseValue()));
+                $httpStatusCode = 200;
                 break;
         }
+
+        $responseHeaders = [
+            'Content-Type' => 'application/json'
+        ];
+        $responseBody = json_encode($methodInvoked->getResponseValue());
+        $httpResponse = new HTTPResponse($httpStatusCode, $responseHeaders, $responseBody);
 
         return new ResponseFormatted($httpResponse);
     }
