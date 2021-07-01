@@ -21,6 +21,31 @@ class MethodInvocation
         $this->postValues = $postValues;
     }
 
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    public function getParameterValues()
+    {
+        return $this->parameterValues;
+    }
+
+    public function getGetValues()
+    {
+        return $this->getValues;
+    }
+
+    public function getPostValues()
+    {
+        return $this->postValues;
+    }
+
     public function toArray()
     {
         return [

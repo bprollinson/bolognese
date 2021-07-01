@@ -53,7 +53,9 @@ class MethodInvocation
             'namespace' => $this->namespace,
             'class' => $this->class,
             'method' => $this->method,
-            'parameter_values' => $this->parameterValues
+            'parameter_values' => $this->parameterValues,
+            'get_values' => $this->getValues,
+            'post_values' => $this->postValues
         ];
     }
 }
