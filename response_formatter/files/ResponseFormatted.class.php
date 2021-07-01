@@ -1,6 +1,6 @@
 <?php
 
-require_once('HTTPResponse.class.php');
+require_once('vendor/bprollinson/bolognese-response-formatter-api/src/HTTPResponse.class.php');
 
 class ResponseFormatted
 {

@@ -7,10 +7,15 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-controller-api"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-response-formatter-api"
         }
     ],
     "require": {
         "bprollinson/bolognese-socket-server": "dev-master",
-        "bprollinson/bolognese-controller-api": "dev-master"
+        "bprollinson/bolognese-controller-api": "dev-master",
+        "bprollinson/bolognese-response-formatter-api": "dev-master"
     }
 }
