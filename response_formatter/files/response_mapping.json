@@ -1,0 +1,45 @@
+{
+    "mapping": [
+        {
+            "key": "entities_counted",
+            "httpStatusCode": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        },
+        {
+            "key": "entities_fetched",
+            "httpStatusCode": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        },
+        {
+            "key": "entity_fetched",
+            "httpStatusCode": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        },
+        {
+            "key": "entity_created",
+            "httpStatusCode": 201,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        },
+        {
+            "key": "entity_not_found",
+            "httpStatusCode": 404,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        }
+    ],
+    "default": {
+        "httpStatusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

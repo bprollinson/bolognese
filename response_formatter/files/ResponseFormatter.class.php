@@ -6,31 +6,32 @@ require_once('HTTPResponse.class.php');
 
 class ResponseFormatter
 {
+    private $responseMappingFile;
+
+    public function __construct($responseMappingFile)
+    {
+        $this->responseMappingFile = $responseMappingFile;
+    }
+
     public function format(MethodInvoked $methodInvoked)
     {
-        switch ($methodInvoked->getResponse())
+        $responseMappingFileContents = file_get_contents($this->responseMappingFile);
+        $responseMapping = json_decode($responseMappingFileContents, true);
+
+        foreach ($responseMapping['mapping'] as $possibleResponseType)
         {
-            case 'entities_counted':
-            case 'entities_fetched':
-            case 'entity_fetched':
-                $httpStatusCode = 200;
-                break;
-            case 'entity_created':
-                $httpStatusCode = 201;
-                break;
-            case 'entity_not_found':
-                $httpStatusCode = 404;
-                break;
-            default:
-                $httpStatusCode = 200;
-                break;
+            if ($methodInvoked->getResponse() == $possibleResponseType['key'])
+            {
+                $responseBody = json_encode($methodInvoked->getResponseValue());
+                $httpResponse = new HTTPResponse($possibleResponseType['httpStatusCode'], $possibleResponseType['headers'], $responseBody);
+
+                return new ResponseFormatted($httpResponse);
+            }
         }
 
-        $responseHeaders = [
-            'Content-Type' => 'application/json'
-        ];
         $responseBody = json_encode($methodInvoked->getResponseValue());
-        $httpResponse = new HTTPResponse($httpStatusCode, $responseHeaders, $responseBody);
+        $defaultResponseType = $responseMapping['default'];
+        $httpResponse = new HTTPResponse($defaultResponseType['httpStatusCode'], $defaultResponseType['headers'], $responseBody);
 
         return new ResponseFormatted($httpResponse);
     }

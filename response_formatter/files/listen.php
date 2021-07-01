@@ -12,7 +12,7 @@ if (!$socketProvider->initialize())
     die;
 }
 
-$responseFormatter = new ResponseFormatter();
+$responseFormatter = new ResponseFormatter('/root/response_mapping.json');
 
 while (true)
 {
