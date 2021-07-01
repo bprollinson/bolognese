@@ -1,6 +1,6 @@
 <?php
 
-require_once('Request.class.php');
+require_once('vendor/bprollinson/bolognese-router-api/src/Request.class.php');
 require_once('MethodInvocation.class.php');
 
 class Router

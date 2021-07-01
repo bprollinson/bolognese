@@ -3,9 +3,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-socket-server"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-router-api"
         }
     ],
     "require": {
-        "bprollinson/bolognese-socket-server": "dev-master"
+        "bprollinson/bolognese-socket-server": "dev-master",
+        "bprollinson/bolognese-router-api": "dev-master"
     }
 }
