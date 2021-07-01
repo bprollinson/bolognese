@@ -34,12 +34,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-response-formatter-api.git",
-                "reference": "00d7bed489b4738189f147b9737c420430a9ed96"
+                "reference": "101d37350568a709435630c1b9e8be05db2a8914"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-response-formatter-api/zipball/00d7bed489b4738189f147b9737c420430a9ed96",
-                "reference": "00d7bed489b4738189f147b9737c420430a9ed96",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-response-formatter-api/zipball/101d37350568a709435630c1b9e8be05db2a8914",
+                "reference": "101d37350568a709435630c1b9e8be05db2a8914",
                 "shasum": ""
             },
             "default-branch": true,
@@ -48,7 +48,7 @@
                 "source": "https://github.com/bprollinson/bolognese-response-formatter-api/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-response-formatter-api/issues"
             },
-            "time": "2021-07-01T00:12:37+00:00"
+            "time": "2021-07-01T00:25:42+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",

@@ -1,7 +1,7 @@
 <?php
 
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvoked.class.php');
-require_once('ResponseFormatted.class.php');
+require_once('vendor/bprollinson/bolognese-response-formatter-api/src/ResponseFormatted.class.php');
 require_once('vendor/bprollinson/bolognese-response-formatter-api/src/HTTPResponse.class.php');
 
 class ResponseFormatter
