@@ -4,8 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90a7baa75e117c55dfb8fb25edeb514d",
+    "content-hash": "ef0e28ccbd491161d49fe9a11afd9a35",
     "packages": [
+        {
+            "name": "bprollinson/bolognese-database-client-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-database-client-api.git",
+                "reference": "b7aa9cf83d1ee8d70122ec4e27ea07ca35077ce1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-api/zipball/b7aa9cf83d1ee8d70122ec4e27ea07ca35077ce1",
+                "reference": "b7aa9cf83d1ee8d70122ec4e27ea07ca35077ce1",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-database-client-api/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-database-client-api/issues"
+            },
+            "time": "2021-07-01T17:09:01+00:00"
+        },
         {
             "name": "bprollinson/bolognese-socket-server",
             "version": "dev-master",
@@ -33,7 +55,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "bprollinson/bolognese-socket-server": 20
+        "bprollinson/bolognese-socket-server": 20,
+        "bprollinson/bolognese-database-client-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

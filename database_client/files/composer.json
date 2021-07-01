@@ -3,9 +3,14 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-socket-server"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-database-client-api"
         }
     ],
     "require": {
-        "bprollinson/bolognese-socket-server": "dev-master"
+        "bprollinson/bolognese-socket-server": "dev-master",
+        "bprollinson/bolognese-database-client-api": "dev-master"
     }
 }
