@@ -7,10 +7,15 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-database-client-api"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-database-client-lib"
         }
     ],
     "require": {
         "bprollinson/bolognese-socket-server": "dev-master",
-        "bprollinson/bolognese-database-client-api": "dev-master"
+        "bprollinson/bolognese-database-client-api": "dev-master",
+        "bprollinson/bolognese-database-client-lib": "dev-master"
     }
 }

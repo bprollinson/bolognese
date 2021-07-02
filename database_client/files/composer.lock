@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef0e28ccbd491161d49fe9a11afd9a35",
+    "content-hash": "032d0c0aac86dfb5659224b7557d27be",
     "packages": [
         {
             "name": "bprollinson/bolognese-database-client-api",
@@ -27,6 +27,28 @@
                 "issues": "https://github.com/bprollinson/bolognese-database-client-api/issues"
             },
             "time": "2021-07-02T03:07:37+00:00"
+        },
+        {
+            "name": "bprollinson/bolognese-database-client-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-database-client-lib.git",
+                "reference": "6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-lib/zipball/6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58",
+                "reference": "6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-database-client-lib/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-database-client-lib/issues"
+            },
+            "time": "2021-07-02T14:37:52+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",
@@ -56,7 +78,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "bprollinson/bolognese-socket-server": 20,
-        "bprollinson/bolognese-database-client-api": 20
+        "bprollinson/bolognese-database-client-api": 20,
+        "bprollinson/bolognese-database-client-lib": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
