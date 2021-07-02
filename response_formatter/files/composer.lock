@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-controller-api.git",
-                "reference": "5d4664f8d8e4f3a7121617aecfd5126aef3f5e61"
+                "reference": "e280da694fa65636a0e97b0d6cb3eb4e1067ec67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-controller-api/zipball/5d4664f8d8e4f3a7121617aecfd5126aef3f5e61",
-                "reference": "5d4664f8d8e4f3a7121617aecfd5126aef3f5e61",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-controller-api/zipball/e280da694fa65636a0e97b0d6cb3eb4e1067ec67",
+                "reference": "e280da694fa65636a0e97b0d6cb3eb4e1067ec67",
                 "shasum": ""
             },
             "default-branch": true,
@@ -26,7 +26,7 @@
                 "source": "https://github.com/bprollinson/bolognese-controller-api/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-controller-api/issues"
             },
-            "time": "2021-07-01T17:34:58+00:00"
+            "time": "2021-07-02T13:52:09+00:00"
         },
         {
             "name": "bprollinson/bolognese-response-formatter-api",
