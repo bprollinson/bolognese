@@ -1,6 +1,6 @@
 <?php
 
-require_once('ScalarSelectExecuted.class.php');
+require_once('QueryExecuted.class.php');
 
 class QueryExecutor
 {
@@ -15,23 +15,25 @@ class QueryExecutor
         $statement = $pdo->prepare($execution->getQuery());
         $statement->execute();
 
+        $type = $execution->getType();
+
         switch ($execution->getType())
         {
             case 'select_scalar':
-                return new ScalarSelectExecuted($statement->fetchColumn());
+                return new QueryExecuted($type, $statement->fetchColumn());
             case 'select':
-                return new ScalarSelectExecuted($statement->fetchAll(PDO::FETCH_ASSOC));
+                return new QueryExecuted($type, $statement->fetchAll(PDO::FETCH_ASSOC));
             case 'select_single_row':
                 $result = $statement->fetch(PDO::FETCH_ASSOC);
                 if ($result === false)
                 {
                     $result = null;
                 }
-                return new ScalarSelectExecuted($result);
+                return new QueryExecuted($type, $result);
             case 'insert':
-                return new ScalarSelectExecuted($pdo->lastInsertId());
+                return new QueryExecuted($type, $pdo->lastInsertId());
             case 'execute':
-                return new ScalarSelectExecuted(true);
+                return new QueryExecuted($type, true);
             default:
                 return null;
         }

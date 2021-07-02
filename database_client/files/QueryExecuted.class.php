@@ -1,18 +1,20 @@
 <?php
 
-class ScalarSelectExecuted
+class QueryExecuted
 {
+    private $type;
     private $result;
 
-    public function __construct($result)
+    public function __construct($type, $result)
     {
+        $this->type = $type;
         $this->result = $result;
     }
 
     public function toArray()
     {
         return [
-            'type' => 'select_scalar',
+            'type' => $this->type,
             'result' => $this->result
         ];
     }
