@@ -1,6 +1,6 @@
 <?php
 
-require_once('MethodNotFoundResponse.class.php');
+require_once('vendor/bprollinson/bolognese-controller-api/src/MethodNotFoundResponse.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvokedResponse.class.php');
 
 class MethodInvoker
