@@ -1,15 +1,23 @@
 <?php
 
+require_once('DatabaseConnectionConfig.class.php');
 require_once('vendor/bprollinson/bolognese-database-client-api/src/QueryExecuted.class.php');
 
 class QueryExecutor
 {
+    private $databaseConnectionConfig;
+
+    public function __construct(DatabaseConnectionConfig $databaseConnectionConfig)
+    {
+        $this->databaseConnectionConfig = $databaseConnectionConfig;
+    }
+
     public function execute(QueryExecution $execution)
     {
-        $host = 'database';
-        $db = 'webapp';
-        $user = 'root';
-        $password = '';
+        $host = $this->databaseConnectionConfig->getHost();
+        $db = $this->databaseConnectionConfig->getDB();
+        $user = $this->databaseConnectionConfig->getUser();
+        $password = $this->databaseConnectionConfig->getPassword();
 
         $pdo = new PDO("mysql:host={$host};dbname={$db}", $user, $password);
         $statement = $pdo->prepare($execution->getQuery());
@@ -17,7 +25,7 @@ class QueryExecutor
 
         $type = $execution->getType();
 
-        switch ($execution->getType())
+        switch ($type)
         {
             case 'select_scalar':
                 return new QueryExecuted($type, $statement->fetchColumn());
