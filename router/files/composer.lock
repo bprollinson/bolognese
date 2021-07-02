@@ -34,12 +34,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-socket-server.git",
-                "reference": "21f9b16068c4c178c88854b0196645b28006722d"
+                "reference": "6e7ebd0ec64138422f210f99e7884cb5d1828566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-socket-server/zipball/21f9b16068c4c178c88854b0196645b28006722d",
-                "reference": "21f9b16068c4c178c88854b0196645b28006722d",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-socket-server/zipball/6e7ebd0ec64138422f210f99e7884cb5d1828566",
+                "reference": "6e7ebd0ec64138422f210f99e7884cb5d1828566",
                 "shasum": ""
             },
             "default-branch": true,
@@ -48,7 +48,7 @@
                 "source": "https://github.com/bprollinson/bolognese-socket-server/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-socket-server/issues"
             },
-            "time": "2021-06-29T02:05:24+00:00"
+            "time": "2021-07-02T14:18:48+00:00"
         }
     ],
     "packages-dev": [],
