@@ -11,11 +11,16 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-controller-api"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-database-client-api"
         }
     ],
     "require": {
         "bprollinson/bolognese-socket-client": "dev-master",
         "bprollinson/bolognese-socket-server": "dev-master",
-        "bprollinson/bolognese-controller-api": "dev-master"
+        "bprollinson/bolognese-controller-api": "dev-master",
+        "bprollinson/bolognese-database-client-api": "dev-master"
     }
 }
