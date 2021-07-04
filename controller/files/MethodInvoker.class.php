@@ -1,5 +1,6 @@
 <?php
 
+require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvocation.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodNotFoundResponse.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvokedResponse.class.php');
 

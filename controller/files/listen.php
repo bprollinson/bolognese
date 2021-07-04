@@ -1,7 +1,7 @@
 <?php
 
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
-require_once('MethodInvocation.class.php');
+require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvocation.class.php');
 require_once('MethodInvoker.class.php');
 
 $hostIP = gethostbyname('controller');
