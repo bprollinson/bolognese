@@ -3,7 +3,7 @@
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('vendor/bprollinson/bolognese-database-client-api/src/QueryExecution.class.php');
 require_once('vendor/bprollinson/bolognese-database-client-lib/src/DatabaseConnectionConfig.class.php');
-require_once('QueryExecutor.class.php');
+require_once('vendor/bprollinson/bolognese-database-client-lib/src/QueryExecutor.class.php');
 
 $hostIP = gethostbyname('database_client');
 $port = 50002;

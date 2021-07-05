@@ -15,7 +15,7 @@
     ],
     "require": {
         "bprollinson/bolognese-socket-server": "dev-master",
-        "bprollinson/bolognese-database-client-api": "dev-master",
         "bprollinson/bolognese-database-client-lib": "dev-master"
-    }
+    },
+    "minimum-stability": "dev"
 }

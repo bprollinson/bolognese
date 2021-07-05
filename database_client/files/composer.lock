@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "032d0c0aac86dfb5659224b7557d27be",
+    "content-hash": "50a712e97590e92cddef545f7f08c689",
     "packages": [
         {
             "name": "bprollinson/bolognese-database-client-api",
@@ -34,13 +34,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-database-client-lib.git",
-                "reference": "6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58"
+                "reference": "fa6ff77a092e1edaf0a3c9d394342f43e8cdf7ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-lib/zipball/6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58",
-                "reference": "6eabfa3cec7e5393a4f4e84f62f3ad5f42776f58",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-lib/zipball/fa6ff77a092e1edaf0a3c9d394342f43e8cdf7ac",
+                "reference": "fa6ff77a092e1edaf0a3c9d394342f43e8cdf7ac",
                 "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-database-client-api": "dev-master"
             },
             "default-branch": true,
             "type": "library",
@@ -48,7 +51,7 @@
                 "source": "https://github.com/bprollinson/bolognese-database-client-lib/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-database-client-lib/issues"
             },
-            "time": "2021-07-02T14:37:52+00:00"
+            "time": "2021-07-05T01:36:38+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",
@@ -75,10 +78,9 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "bprollinson/bolognese-socket-server": 20,
-        "bprollinson/bolognese-database-client-api": 20,
         "bprollinson/bolognese-database-client-lib": 20
     },
     "prefer-stable": false,
