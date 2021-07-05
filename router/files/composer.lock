@@ -34,13 +34,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-router-api.git",
-                "reference": "b7b0f0a2033ef439dcc763a2603e8bb8b2ca7329"
+                "reference": "f143eb7f0bd7e4fd0c9ce64586ab41d64d3c0a63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-router-api/zipball/b7b0f0a2033ef439dcc763a2603e8bb8b2ca7329",
-                "reference": "b7b0f0a2033ef439dcc763a2603e8bb8b2ca7329",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-router-api/zipball/f143eb7f0bd7e4fd0c9ce64586ab41d64d3c0a63",
+                "reference": "f143eb7f0bd7e4fd0c9ce64586ab41d64d3c0a63",
                 "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-controller-api": "dev-master"
             },
             "default-branch": true,
             "type": "library",
@@ -48,7 +51,7 @@
                 "source": "https://github.com/bprollinson/bolognese-router-api/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-router-api/issues"
             },
-            "time": "2021-07-03T03:18:29+00:00"
+            "time": "2021-07-05T02:24:18+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",
