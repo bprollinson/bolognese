@@ -11,6 +11,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/bprollinson/bolognese-database-client-lib"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bprollinson/bolognese-socket-client"
         }
     ],
     "require": {
