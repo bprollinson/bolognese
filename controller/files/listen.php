@@ -2,7 +2,7 @@
 
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvocation.class.php');
-require_once('MethodInvoker.class.php');
+require_once('vendor/bprollinson/bolognese-controller-lib/src/MethodInvoker.class.php');
 
 $hostIP = gethostbyname('controller');
 $port = 50001;
@@ -36,7 +36,7 @@ while (true)
         $requestParameters['post_values']
     );
 
-    $responseModel = $methodInvoker->invoke($requestModel);
+    $responseModel = $methodInvoker->invoke(dirname(__FILE__), $requestModel);
     $response = json_encode($responseModel->toArray());
     $client->write($response);
 

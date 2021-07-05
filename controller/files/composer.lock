@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60a7e4e6b6eeb3ac771a82a5c718dd36",
+    "content-hash": "6b7270fac82c5e4ffa251ca1d6b2218f",
     "packages": [
         {
             "name": "bprollinson/bolognese-controller-api",
@@ -27,6 +27,31 @@
                 "issues": "https://github.com/bprollinson/bolognese-controller-api/issues"
             },
             "time": "2021-07-03T03:31:02+00:00"
+        },
+        {
+            "name": "bprollinson/bolognese-controller-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-controller-lib.git",
+                "reference": "3db854d001c273ec229be0151f376dc938085292"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-controller-lib/zipball/3db854d001c273ec229be0151f376dc938085292",
+                "reference": "3db854d001c273ec229be0151f376dc938085292",
+                "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-controller-api": "dev-master"
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-controller-lib/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-controller-lib/issues"
+            },
+            "time": "2021-07-05T03:57:34+00:00"
         },
         {
             "name": "bprollinson/bolognese-database-client-api",
@@ -97,12 +122,12 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "bprollinson/bolognese-socket-client": 20,
         "bprollinson/bolognese-socket-server": 20,
-        "bprollinson/bolognese-controller-api": 20,
-        "bprollinson/bolognese-database-client-api": 20
+        "bprollinson/bolognese-database-client-api": 20,
+        "bprollinson/bolognese-controller-lib": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
