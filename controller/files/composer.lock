@@ -59,13 +59,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-database-client-api.git",
-                "reference": "30f1e12e73d85199ce269cc1fd9050a30781bbed"
+                "reference": "b1e414acab550d1965d85a7838cb4ad46b8c6386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-api/zipball/30f1e12e73d85199ce269cc1fd9050a30781bbed",
-                "reference": "30f1e12e73d85199ce269cc1fd9050a30781bbed",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-database-client-api/zipball/b1e414acab550d1965d85a7838cb4ad46b8c6386",
+                "reference": "b1e414acab550d1965d85a7838cb4ad46b8c6386",
                 "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-socket-client": "dev-master"
             },
             "default-branch": true,
             "type": "library",
@@ -73,7 +76,7 @@
                 "source": "https://github.com/bprollinson/bolognese-database-client-api/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-database-client-api/issues"
             },
-            "time": "2021-07-02T22:18:03+00:00"
+            "time": "2021-07-05T04:15:49+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-client",

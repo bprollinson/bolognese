@@ -1,6 +1,6 @@
 <?php
 
-require_once('DatabaseClientClient.class.php');
+require_once('vendor/bprollinson/bolognese-database-client-api/src/DatabaseClientClient.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvoked.class.php');
 require_once('vendor/bprollinson/bolognese-database-client-api/src/DatabaseFailureException.class.php');
 
