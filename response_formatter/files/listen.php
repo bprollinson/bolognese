@@ -2,7 +2,7 @@
 
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('vendor/bprollinson/bolognese-controller-api/src/MethodInvoked.class.php');
-require_once('ResponseFormatter.class.php');
+require_once('vendor/bprollinson/bolognese-response-formatter-lib/src/ResponseFormatter.class.php');
 
 $hostIP = gethostbyname('response_formatter');
 $port = 50003;

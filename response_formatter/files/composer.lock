@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "012e84fcf712c78b97f574e05e7b8ec4",
+    "content-hash": "48f4459cb9747b920fefb8d7ef666b08",
     "packages": [
         {
             "name": "bprollinson/bolognese-controller-api",
@@ -51,6 +51,32 @@
             "time": "2021-07-02T14:02:47+00:00"
         },
         {
+            "name": "bprollinson/bolognese-response-formatter-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-response-formatter-lib.git",
+                "reference": "0d0237f760dcacbb7be7f92c50890dd0e27c2e6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-response-formatter-lib/zipball/0d0237f760dcacbb7be7f92c50890dd0e27c2e6a",
+                "reference": "0d0237f760dcacbb7be7f92c50890dd0e27c2e6a",
+                "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-controller-api": "dev-master",
+                "bprollinson/bolognese-response-formatter-api": "dev-master"
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-response-formatter-lib/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-response-formatter-lib/issues"
+            },
+            "time": "2021-07-06T01:08:12+00:00"
+        },
+        {
             "name": "bprollinson/bolognese-socket-server",
             "version": "dev-master",
             "source": {
@@ -75,11 +101,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "bprollinson/bolognese-socket-server": 20,
-        "bprollinson/bolognese-controller-api": 20,
-        "bprollinson/bolognese-response-formatter-api": 20
+        "bprollinson/bolognese-response-formatter-lib": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
