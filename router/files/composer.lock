@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "036a54bdcc5b6d38b05f465de2784171",
+    "content-hash": "0bc82f1a41a1bd03603df4724b996d95",
     "packages": [
         {
             "name": "bprollinson/bolognese-controller-api",
@@ -54,6 +54,31 @@
             "time": "2021-07-05T02:24:18+00:00"
         },
         {
+            "name": "bprollinson/bolognese-router-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bprollinson/bolognese-router-lib.git",
+                "reference": "0964b4f8b4bd6cf814eb65466e09fd804444ff84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-router-lib/zipball/0964b4f8b4bd6cf814eb65466e09fd804444ff84",
+                "reference": "0964b4f8b4bd6cf814eb65466e09fd804444ff84",
+                "shasum": ""
+            },
+            "require": {
+                "bprollinson/bolognese-router-api": "dev-master"
+            },
+            "default-branch": true,
+            "type": "library",
+            "support": {
+                "source": "https://github.com/bprollinson/bolognese-router-lib/tree/master",
+                "issues": "https://github.com/bprollinson/bolognese-router-lib/issues"
+            },
+            "time": "2021-07-06T01:40:26+00:00"
+        },
+        {
             "name": "bprollinson/bolognese-socket-server",
             "version": "dev-master",
             "source": {
@@ -78,11 +103,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "bprollinson/bolognese-socket-server": 20,
-        "bprollinson/bolognese-router-api": 20,
-        "bprollinson/bolognese-controller-api": 20
+        "bprollinson/bolognese-router-lib": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -2,7 +2,7 @@
 
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
 require_once('vendor/bprollinson/bolognese-router-api/src/Request.class.php');
-require_once('Router.class.php');
+require_once('vendor/bprollinson/bolognese-router-lib/src/Router.class.php');
 require_once('vendor/bprollinson/bolognese-router-api/src/RouteNotFoundResponse.class.php');
 require_once('vendor/bprollinson/bolognese-router-api/src/MethodInvocationResponse.class.php');
 
