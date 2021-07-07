@@ -1,6 +1,7 @@
 <?php
 
 require_once('vendor/bprollinson/bolognese-socket-server/src/ServerSocketProvider.class.php');
+require_once('vendor/bprollinson/bolognese-router-lib/src/URIMatcher.class.php');
 require_once('vendor/bprollinson/bolognese-router-api/src/Request.class.php');
 require_once('vendor/bprollinson/bolognese-router-lib/src/Router.class.php');
 require_once('vendor/bprollinson/bolognese-router-api/src/RouteNotFoundResponse.class.php');
@@ -14,7 +15,9 @@ if (!$socketProvider->initialize())
     die;
 }
 
-$router = new Router('/root/routes.json');
+$routesFileContents = file_get_contents('/root/routes.json');
+$routesArray = json_decode($routesFileContents, true);
+$router = new Router($routesArray, new URIMatcher());
 
 while (true)
 {
