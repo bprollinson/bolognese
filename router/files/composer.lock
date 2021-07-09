@@ -59,16 +59,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-router-lib.git",
-                "reference": "a9867c66d3ae5859bccd4c6ae0bcecc075b02305"
+                "reference": "cc9e3b6fbe025ef4b4d324aadc8d345a3f7cd127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-router-lib/zipball/a9867c66d3ae5859bccd4c6ae0bcecc075b02305",
-                "reference": "a9867c66d3ae5859bccd4c6ae0bcecc075b02305",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-router-lib/zipball/cc9e3b6fbe025ef4b4d324aadc8d345a3f7cd127",
+                "reference": "cc9e3b6fbe025ef4b4d324aadc8d345a3f7cd127",
                 "shasum": ""
             },
             "require": {
                 "bprollinson/bolognese-router-api": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0.0"
             },
             "default-branch": true,
             "type": "library",
@@ -76,7 +79,7 @@
                 "source": "https://github.com/bprollinson/bolognese-router-lib/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-router-lib/issues"
             },
-            "time": "2021-07-07T01:11:38+00:00"
+            "time": "2021-07-09T03:30:07+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",
