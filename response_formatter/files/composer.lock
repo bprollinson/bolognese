@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bprollinson/bolognese-response-formatter-lib.git",
-                "reference": "0d0237f760dcacbb7be7f92c50890dd0e27c2e6a"
+                "reference": "af9e98a2c596fb986bf0a52c1249affdad5180ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bprollinson/bolognese-response-formatter-lib/zipball/0d0237f760dcacbb7be7f92c50890dd0e27c2e6a",
-                "reference": "0d0237f760dcacbb7be7f92c50890dd0e27c2e6a",
+                "url": "https://api.github.com/repos/bprollinson/bolognese-response-formatter-lib/zipball/af9e98a2c596fb986bf0a52c1249affdad5180ad",
+                "reference": "af9e98a2c596fb986bf0a52c1249affdad5180ad",
                 "shasum": ""
             },
             "require": {
@@ -74,7 +74,7 @@
                 "source": "https://github.com/bprollinson/bolognese-response-formatter-lib/tree/master",
                 "issues": "https://github.com/bprollinson/bolognese-response-formatter-lib/issues"
             },
-            "time": "2021-07-06T01:08:12+00:00"
+            "time": "2021-07-09T03:57:06+00:00"
         },
         {
             "name": "bprollinson/bolognese-socket-server",
